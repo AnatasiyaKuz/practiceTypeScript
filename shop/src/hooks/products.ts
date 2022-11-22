@@ -7,6 +7,10 @@ export function useProducts() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
+    function addProduct(product:IProduct){
+        setProductsData(prev=>[...prev,product])
+    }
+
     async function fetchProducts() {
 
         try {
@@ -26,5 +30,5 @@ export function useProducts() {
         fetchProducts();
     }, [])
 
-    return {productsData, loading, error}
+    return {productsData, loading, error, addProduct}
 }
